@@ -1,0 +1,28 @@
+%h1 Listing tweets
+%table
+  %thead
+    %tr
+      %th Message
+      %th
+      %th
+      %th
+
+  %tbody
+    - @tweets.each do |tweet|
+      %tr
+        %td= tweet.message
+        %td= link_to 'Show', tweet
+         
+        - if tweet.user == current_user
+          %td= link_to 'Edit', edit_tweet_path(tweet)
+          %td= link_to 'Destroy', tweet, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Tweet', new_tweet_path
+= " | "
+<!-- = link_to 'Add followers' , :controller => :followers, :action => :findFollowers, :id => current_user.id -->
+-if current_user != nil
+  =link_to 'List my followers' , follows_path 
+  = " | " 
+  =link_to 'Followers Tweets', :controller => :tweets, :action => :followed_tweets, :id => current_user.id

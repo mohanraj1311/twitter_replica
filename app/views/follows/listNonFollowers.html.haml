@@ -1,0 +1,7 @@
+%h1 Add followers
+%table
+  %tbody
+    - @allUsers.each do |non_follower|
+      %tr
+        %td= non_follower.name
+        %td= link_to 'Follow', follows_path(:follower_id => non_follower.id),:method => :post 

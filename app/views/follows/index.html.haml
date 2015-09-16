@@ -1,0 +1,20 @@
+%h1 Listing followers
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @myFollowers.each do |myFollower|
+      %tr
+        %td= User.find(myFollower.follower_id).name
+        %td= link_to 'Remove', myFollower, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+<!-- = link_to 'Add New Follower', new_follow_path -->
+= link_to 'Add new followers', :controller => :follows, :action => :listNonFollowers, :id =>current_user.id 
+= link_to 'Home' , root_path

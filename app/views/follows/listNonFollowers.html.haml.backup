@@ -1,0 +1,4 @@
+%h1 Add followers
+- @allUsers.each do |elem|
+  %ul
+    %li= elem.name
