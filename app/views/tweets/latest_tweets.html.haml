@@ -1,0 +1,18 @@
+%h1 Listing follower's latest tweets
+%table
+  %thead
+    %tr
+      %th Message
+      %th
+      %th
+      %th
+
+  %tbody
+    -@latest_tweets.each do |latest_tweet|
+      %tr
+        %td= latest_tweet.message
+        %td= latest_tweet.user_id
+%br
+
+= link_to 'Home', root_path
+

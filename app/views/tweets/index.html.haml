@@ -26,3 +26,5 @@
   =link_to 'List my followers' , follows_path 
   = " | " 
   =link_to 'Followers Tweets', :controller => :tweets, :action => :followed_tweets, :id => current_user.id
+  = " | "
+  =link_to 'Latest tweets by followers', :controller => :tweets, :action => :latest_tweets, :id => current_user.id

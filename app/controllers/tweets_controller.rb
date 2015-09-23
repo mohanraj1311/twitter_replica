@@ -79,6 +79,25 @@ class TweetsController < ApplicationController
 
   end
 
+  def latest_tweets
+    @rows = Follow.find_followers(current_user.id)
+    @follower_ids = []
+
+    for follower in @rows
+      @follower_ids.push(follower.follower_id)
+    end
+    @fs = ''
+    for x in @follower_ids
+      @fs.concat(x.to_s)
+      @fs.concat(',')
+    end
+    n = @fs.length
+    @fs = @fs[0,@fs.length - 1]
+    @latest_tweets = Tweet.find_by_sql "select created_at,message,user_id from (
+select created_at,message,user_id, row_number() over (
+partition by user_id order by created_at DESC ) as row_rank from tweets ) as ranked where row_rank < 3 and user_id in (#{@fs})"
+   
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
