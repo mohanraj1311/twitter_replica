@@ -11,6 +11,8 @@
     -@followed_tweets.each do |followed_tweet|
       %tr
         %td= followed_tweet.message
+        %td=  "|"
+        %td= User.find(followed_tweet.user_id).name
         -if followed_tweet.user == current_user
           %td= link_to 'Edit', edit_tweet_path(followed_tweet)
           %td= link_to 'Destroy', followed_tweet, :method => :delete, :data => { :confirm => 'Are you sure?' }

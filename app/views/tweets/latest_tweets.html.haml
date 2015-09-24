@@ -11,7 +11,8 @@
     -@latest_tweets.each do |latest_tweet|
       %tr
         %td= latest_tweet.message
-        %td= latest_tweet.user_id
+        %td= "|"
+        %td= User.find(latest_tweet.user_id).name
 %br
 
 = link_to 'Home', root_path

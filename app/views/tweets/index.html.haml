@@ -11,6 +11,8 @@
     - @tweets.each do |tweet|
       %tr
         %td= tweet.message
+        %td= "|"
+        %td= User.find(tweet.user_id).name
         %td= link_to 'Show', tweet
          
         - if tweet.user == current_user
