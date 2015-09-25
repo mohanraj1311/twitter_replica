@@ -91,7 +91,6 @@ class TweetsController < ApplicationController
       @fs.concat(x.to_s)
       @fs.concat(',')
     end
-    n = @fs.length
     @fs = @fs[0,@fs.length - 1]
     @latest_tweets = Tweet.find_by_sql "select created_at,message,user_id from (
 select created_at,message,user_id, row_number() over (
