@@ -1,27 +1,40 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* The initial steps to get the project up:
+  
+  rails new my_twitter_project --database=postgresql
 
-Things you may want to cover:
+* Move to the db directory
+
+  rake db:setup
+
+* Run the rails server
+
+  rails s
+
+* In the Gemfile, add:
+
+  gem 'haml', '~> 4.0.7'
+  gem 'haml-rails', '~> 0.9.0'
+  gem 'html2haml', '~> 2.0.0'
+ 
 
 * Ruby version
 
-* System dependencies
+  ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-darwin14]
 
-* Configuration
+* System dependencies
+  
+  Rails 4.2.1
 
 * Database creation
+  
+  The database used is POSTGRES  
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
 
 
 Please feel free to use a different markup language if you do not plan to run
