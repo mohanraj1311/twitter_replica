@@ -1,4 +1,4 @@
-%h1 Listing followers
+%h1 You currently follow: 
 
 %table
   %thead
@@ -16,5 +16,5 @@
 %br
 
 <!-- = link_to 'Add New Follower', new_follow_path -->
-= link_to 'Add new followers', :controller => :follows, :action => :listNonFollowers, :id =>current_user.id 
-= link_to 'Home' , root_path
+= link_to 'Want to follow new users?', :controller => :follows, :action => :listNonFollowers, :id =>current_user.id 
+= link_to 'Users who follow me', :controller => :follows, :action => :find_my_following, :id =>current_user.id

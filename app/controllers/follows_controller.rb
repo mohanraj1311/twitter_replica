@@ -42,6 +42,10 @@ class FollowsController < ApplicationController
     end
   end
 
+  def find_my_following
+    @myFollowing = Follow.find_following(current_user.id)
+  end
+
   # GET /follows/1/edit
   def edit
   end

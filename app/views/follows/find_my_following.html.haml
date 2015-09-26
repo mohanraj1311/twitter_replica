@@ -1,0 +1,8 @@
+%h1 You are followed by: 
+%table
+  %tbody
+    - @myFollowing.each do |element|
+      %tr
+        %td= User.find(element.user_id).name
+        %td= " | "
+        %td= User.find(element.user_id).email
